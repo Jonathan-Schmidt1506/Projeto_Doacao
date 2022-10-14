@@ -1,9 +1,32 @@
+
 <?php
-try {
-    $conexao = new PDO('mysql:host=162.144.232.102;dbname=apirestapp_grupo2', 'apirestapp_grupo2', 'aGe4o;RG~zfM');
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo ("Conexão com sucesso");
-} catch(PDOException $erro) {
-    echo "ERRO => " . $erro->getMessage();
+
+class Conexao {
+    private $host = "162.144.232.102";
+    private $user = "apirestapp_grupo2";
+    private $senha = "aGe4o;RG~zfM";
+    private $banco = "apirestapp_grupo2";
+    private $conexao;
+
+    function conectar(){
+        $this->conexao = new PDO("mysql:host={$this->host};dbname={$this->banco}", "{$this->user}", "{$this->senha}");
+
+        return $this->conexao;
+
+    }
+
+    function fecha(){
+        mysqli_close($this->conexao);
+    }
+
+
 }
+    /*try{
+        parent::conectar();
+        if(mysqli_connect_errno() =! 0){
+            throw new Exception('fudeu');
+        }
+    } catch (Exception $e) {
+        $e->getMessage();
+    }*/
 ?>
