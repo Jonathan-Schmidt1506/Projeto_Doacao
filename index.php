@@ -1,17 +1,17 @@
 <?php
 
-require_once('Usuario.php');
+include 'Usuario.php';
 
 
 
 $dados = [
     'nome' => "nicolas",
-    'data_nasc' => "1990-09-11",
+    'data_nascimento' => "1990-09-11",
     'email' => "teste@teste.com.br",
     'telefone' => "(49) 9 9999-9999",
     'celular' => "(49) 9 9999-9999",
     'instagram' => "",
-    'facebook' => "",
+    'facabook' => "",
     'whatsapp' => "(49) 9 9999-9999",
     'logradouro' => "Rua teste 2",
     'cidade' => "São Miguel do Oeste",
@@ -25,5 +25,3 @@ $dados = [
 $usuario = new Usuario();
 
 $usuario->cadastro($dados);
-
-
