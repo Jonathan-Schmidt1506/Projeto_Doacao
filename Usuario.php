@@ -24,6 +24,8 @@ class Usuario
 
     public function __constructor()
     {
+        
+        
     }
 
     private function verificaTermos(bool $aceitaTermos): bool
@@ -96,4 +98,38 @@ class Usuario
             }
         }
     }
-}
+    public function iniciaSessao($email, $senha){
+      
+
+        //$senha = md5($senha);
+
+        $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha' " or die("ERRO AO SELECIONAR");
+     
+        $this->conn = new Conexao;
+        $result = $this->conn->executeQuery($sql);
+     
+        if($result->num_rows > 0){
+
+           @header('Location: '. 'http://localhost/Projeto_Doacao/index.php');
+           exit();
+        } else {
+            
+            if($_SESSION['log_in'] == false){
+                @header('Location: '. 'http://localhost/Projeto_Doacao/login.html');
+                exit();
+            }else{
+                @header('Location: '. 'http://localhost/Projeto_Doacao/index.php');
+                exit();
+            }
+            
+        }
+      }
+     
+      //função para deslogar o usuário
+      private function terminaSessao(){
+        $sessao = false;
+        echo "DESLOGADO COM SUCESSO";
+      }
+     
+    }
+

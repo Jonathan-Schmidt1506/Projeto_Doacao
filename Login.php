@@ -1,10 +1,11 @@
 <?php
-/*class Login{
-    public function VerificaUsuario(){
-        if ($cpf && $senha == $cpf_banco && $senha_banco){
-            echo "login concluido";
-        } else {
-            echo "Senha incorreta!";
-        }
-    }
-}*/
+include 'Usuario.php';
+
+$dados = $_POST;
+
+$usuario = new Usuario();
+
+$usuario->iniciaSessao($dados['email'], $dados['senha']);
+
+
+
