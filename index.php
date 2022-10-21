@@ -1,7 +1,8 @@
 <?php
+include 'Iten.php';
 
-include 'Usuario.php';
+$iten = new Iten();
 
-echo "tela index";
-
+$iten->mostra();
+?>
 
