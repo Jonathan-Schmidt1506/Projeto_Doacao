@@ -80,7 +80,7 @@ class Usuario
                         '{$dados['telefone']}',
                         '{$dados['celular']}',
                         '{$dados['instagram']}',
-                        '{$dados['facabook']}',
+                        '{$dados['facebook']}',
                         '{$dados['senha']}',
                         '{$dados['cpf']}',
                         '{$dados['logradouro']}',
@@ -97,7 +97,10 @@ class Usuario
                 $this->conn->executeQuery($sql);
             }
         }
+        @header('Location: '. 'http://localhost/Projeto_Doacao/index.php');
     }
+    
+
     public function iniciaSessao($email, $senha){
       
 
@@ -113,7 +116,7 @@ class Usuario
            @header('Location: '. 'http://localhost/Projeto_Doacao/index.php');
            exit();
         } else {
-            
+           
             if($_SESSION['log_in'] == false){
                 @header('Location: '. 'http://localhost/Projeto_Doacao/login.html');
                 exit();
